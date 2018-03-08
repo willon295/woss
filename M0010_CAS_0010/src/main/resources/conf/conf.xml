@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<woss>
+	<gather class="com.briup.woss.client.GatherImpl">
+		<nas-ip>127.0.0.1</nas-ip>
+		<src-file>data/radwtmp</src-file>
+	</gather>
+	
+	<client class="com.briup.woss.client.ClientImpl">
+		<ip>127.0.0.1</ip>
+		<port>5000</port>
+	</client>
+	
+	<server class="com.briup.woss.server.ServerImpl">
+		<port>5000</port>
+	</server>
+	
+	<dbstore class="com.briup.woss.server.DBStoreImpl">
+			<url>jdbc:mysql://localhost:3306/woss?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</url>
+			<driver>com.mysql.jdbc.Driver</driver>
+			<userName>root</userName>
+			<passWord>root</passWord>
+			<batch-size>100</batch-size>
+	</dbstore>
+	
+	<logger class="com.briup.woss.util.LoggerImpl">
+		<log-properties>log4j.properties</log-properties>
+	</logger>
+	
+	<backup class="com.briup.woss.util.BackUPImpl">
+		<back-temp>back</back-temp>
+	</backup>
+</woss>

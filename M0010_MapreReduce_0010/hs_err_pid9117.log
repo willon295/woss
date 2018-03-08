@@ -1,0 +1,1107 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 164626432 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2640), pid=9117, tid=0x00007effbb6f6700
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_131-b11) (build 1.8.0_131-b11)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.131-b11 mixed mode linux-amd64 compressed oops)
+# Core dump written. Default location: /home/willon/IdeaProjects/Woss_ChenLong/M0010_MapreReduce_0010/core or core.9117
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007efff01c7000):  VMThread [stack: 0x00007effbb5f6000,0x00007effbb6f7000] [id=9127]
+
+Stack: [0x00007effbb5f6000,0x00007effbb6f7000],  sp=0x00007effbb6f50a0,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xac826a]  VMError::report_and_die()+0x2ba
+V  [libjvm.so+0x4fd4cb]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x8b
+V  [libjvm.so+0x924f53]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0x103
+V  [libjvm.so+0x9254a9]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0x29
+V  [libjvm.so+0x91f6ca]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x2a
+V  [libjvm.so+0x9941e3]  PSVirtualSpace::expand_by(unsigned long)+0x53
+V  [libjvm.so+0x9955e8]  PSYoungGen::resize_generation(unsigned long, unsigned long)+0xf8
+V  [libjvm.so+0x994742]  PSYoungGen::resize(unsigned long, unsigned long)+0x22
+V  [libjvm.so+0x991a1b]  PSScavenge::invoke_no_policy()+0xf3b
+V  [libjvm.so+0x9921a1]  PSScavenge::invoke()+0x41
+V  [libjvm.so+0x948f00]  ParallelScavengeHeap::failed_mem_allocate(unsigned long)+0x70
+V  [libjvm.so+0xac9c87]  VM_ParallelGCFailedAllocation::doit()+0x97
+V  [libjvm.so+0xad1765]  VM_Operation::evaluate()+0x55
+V  [libjvm.so+0xacfb3a]  VMThread::evaluate_operation(VM_Operation*)+0xba
+V  [libjvm.so+0xacfebe]  VMThread::loop()+0x1ce
+V  [libjvm.so+0xad0330]  VMThread::run()+0x70
+V  [libjvm.so+0x927568]  java_start(Thread*)+0x108
+
+VM_Operation (0x00007efff8be1080): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0x00007efff0009000
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007efff1c8c800 JavaThread "pool-1-thread-8" [_thread_blocked, id=9150, stack(0x00007effb8069000,0x00007effb816a000)]
+  0x00007efff1c8b000 JavaThread "pool-1-thread-7" [_thread_blocked, id=9149, stack(0x00007effb816a000,0x00007effb826b000)]
+  0x00007efff1c6a000 JavaThread "pool-1-thread-6" [_thread_blocked, id=9148, stack(0x00007effb8272000,0x00007effb8373000)]
+  0x00007efff1c68800 JavaThread "pool-1-thread-5" [_thread_blocked, id=9147, stack(0x00007effb8373000,0x00007effb8474000)]
+  0x00007efff1c51000 JavaThread "pool-1-thread-4" [_thread_blocked, id=9146, stack(0x00007effb847d000,0x00007effb857e000)]
+  0x00007efff1c4f800 JavaThread "pool-1-thread-3" [_thread_blocked, id=9145, stack(0x00007effb857e000,0x00007effb867f000)]
+  0x00007efff1c38000 JavaThread "pool-1-thread-2" [_thread_blocked, id=9144, stack(0x00007effb868d000,0x00007effb878e000)]
+  0x00007efff1c37800 JavaThread "pool-1-thread-1" [_thread_blocked, id=9143, stack(0x00007effb878e000,0x00007effb888f000)]
+  0x00007efff1192000 JavaThread "resolver-5" daemon [_thread_blocked, id=9142, stack(0x00007effb9200000,0x00007effb9301000)]
+  0x00007efff1190000 JavaThread "resolver-4" daemon [_thread_blocked, id=9141, stack(0x00007effb9301000,0x00007effb9402000)]
+  0x00007efff118e000 JavaThread "resolver-3" daemon [_thread_blocked, id=9140, stack(0x00007effb9402000,0x00007effb9503000)]
+  0x00007efff11b6800 JavaThread "resolver-2" daemon [_thread_blocked, id=9139, stack(0x00007effb9503000,0x00007effb9604000)]
+  0x00007efff11b5000 JavaThread "resolver-1" daemon [_thread_blocked, id=9138, stack(0x00007effb9604000,0x00007effb9705000)]
+  0x00007efff0257800 JavaThread "Service Thread" daemon [_thread_blocked, id=9136, stack(0x00007effbaad6000,0x00007effbabd7000)]
+  0x00007efff024a800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=9135, stack(0x00007effbadee000,0x00007effbaeef000)]
+  0x00007efff0248000 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=9134, stack(0x00007effbaeef000,0x00007effbaff0000)]
+  0x00007efff0246000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=9133, stack(0x00007effbaff0000,0x00007effbb0f1000)]
+  0x00007efff0244000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=9132, stack(0x00007effbb0f1000,0x00007effbb1f2000)]
+  0x00007efff0239800 JavaThread "Monitor Ctrl-Break" daemon [_thread_in_native, id=9131, stack(0x00007effbb1f2000,0x00007effbb2f3000)]
+  0x00007efff0203800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=9130, stack(0x00007effbb2f3000,0x00007effbb3f4000)]
+  0x00007efff01d3000 JavaThread "Finalizer" daemon [_thread_blocked, id=9129, stack(0x00007effbb3f4000,0x00007effbb4f5000)]
+  0x00007efff01ce800 JavaThread "Reference Handler" daemon [_thread_blocked, id=9128, stack(0x00007effbb4f5000,0x00007effbb5f6000)]
+  0x00007efff0009000 JavaThread "main" [_thread_blocked, id=9118, stack(0x00007efff8ae3000,0x00007efff8be4000)]
+
+Other Threads:
+=>0x00007efff01c7000 VMThread [stack: 0x00007effbb5f6000,0x00007effbb6f7000] [id=9127]
+  0x00007efff025c000 WatcherThread [stack: 0x00007effba9d5000,0x00007effbaad6000] [id=9137]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007efff0007370] Threads_lock - owner thread: 0x00007efff01c7000
+[0x00007efff0007870] Heap_lock - owner thread: 0x00007efff0009000
+
+Heap:
+ PSYoungGen      total 416256K, used 51687K [0x00000000d8000000, 0x00000000f6300000, 0x0000000100000000)
+  eden space 364544K, 0% used [0x00000000d8000000,0x00000000d8000000,0x00000000ee400000)
+  from space 51712K, 99% used [0x00000000ee400000,0x00000000f1679f30,0x00000000f1680000)
+  to   space 29184K, 0% used [0x00000000f1680000,0x00000000f1680000,0x00000000f3300000)
+ ParOldGen       total 188928K, used 188656K [0x0000000088000000, 0x0000000093880000, 0x00000000d8000000)
+  object space 188928K, 99% used [0x0000000088000000,0x000000009383c108,0x0000000093880000)
+ Metaspace       used 34809K, capacity 36126K, committed 36392K, reserved 1081344K
+  class space    used 4198K, capacity 4659K, committed 4736K, reserved 1048576K
+
+Card table byte_map: [0x00007efff58e2000,0x00007efff5ca3000] byte_map_base: 0x00007efff54a2000
+
+Marking Bits: (ParMarkBitMap*) 0x00007efff7faaf60
+ Begin Bits: [0x00007effc0400000, 0x00007effc2200000)
+ End Bits:   [0x00007effc2200000, 0x00007effc4000000)
+
+Polling page: 0x00007efff8bf8000
+
+CodeCache: size=245760Kb used=19888Kb max_used=20581Kb free=225871Kb
+ bounds [0x00007effe1000000, 0x00007effe2440000, 0x00007efff0000000]
+ total_blobs=5976 nmethods=5582 adapters=307
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 12.146 Thread 0x00007efff0246000 nmethod 6595 0x00007effe1719e10 code [0x00007effe171a180, 0x00007effe171b378]
+Event: 12.161 Thread 0x00007efff0248000 6598       4       java.net.URL::<init> (7 bytes)
+Event: 12.161 Thread 0x00007efff0248000 nmethod 6598 0x00007effe1144910 code [0x00007effe1144a60, 0x00007effe1144ae8]
+Event: 12.212 Thread 0x00007efff0244000 6599       4       java.util.BitSet::checkInvariants (111 bytes)
+Event: 12.212 Thread 0x00007efff0244000 nmethod 6599 0x00007effe11bfe50 code [0x00007effe11bffa0, 0x00007effe11bfff8]
+Event: 12.247 Thread 0x00007efff0246000 6600 %     4       sun.net.www.ParseUtil::encodePath @ 29 (336 bytes)
+Event: 12.258 Thread 0x00007efff0246000 nmethod 6600% 0x00007effe17cdf10 code [0x00007effe17ce0e0, 0x00007effe17ce968]
+Event: 12.268 Thread 0x00007efff0248000 6601       4       sun.net.www.ParseUtil::encodePath (336 bytes)
+Event: 12.275 Thread 0x00007efff0248000 nmethod 6601 0x00007effe1654610 code [0x00007effe16547c0, 0x00007effe16550e8]
+Event: 12.392 Thread 0x00007efff0244000 6602 %     4       org.apache.commons.compress.archivers.zip.ZipFile::resolveLocalFileHeaderData @ 10 (298 bytes)
+
+GC Heap History (10 events):
+Event: 5.868 GC heap after
+Heap after GC invocations=10 (full 1):
+ PSYoungGen      total 254976K, used 20425K [0x00000000d8000000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 234496K, 0% used [0x00000000d8000000,0x00000000d8000000,0x00000000e6500000)
+  from space 20480K, 99% used [0x00000000e6500000,0x00000000e78f27a8,0x00000000e7900000)
+  to   space 23552K, 0% used [0x00000000ebe80000,0x00000000ebe80000,0x00000000ed580000)
+ ParOldGen       total 73216K, used 23272K [0x0000000088000000, 0x000000008c780000, 0x00000000d8000000)
+  object space 73216K, 31% used [0x0000000088000000,0x00000000896ba278,0x000000008c780000)
+ Metaspace       used 28710K, capacity 29374K, committed 29568K, reserved 1075200K
+  class space    used 3457K, capacity 3682K, committed 3712K, reserved 1048576K
+}
+Event: 6.789 GC heap before
+{Heap before GC invocations=11 (full 1):
+ PSYoungGen      total 254976K, used 254921K [0x00000000d8000000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 234496K, 100% used [0x00000000d8000000,0x00000000e6500000,0x00000000e6500000)
+  from space 20480K, 99% used [0x00000000e6500000,0x00000000e78f27a8,0x00000000e7900000)
+  to   space 23552K, 0% used [0x00000000ebe80000,0x00000000ebe80000,0x00000000ed580000)
+ ParOldGen       total 73216K, used 23272K [0x0000000088000000, 0x000000008c780000, 0x00000000d8000000)
+  object space 73216K, 31% used [0x0000000088000000,0x00000000896ba278,0x000000008c780000)
+ Metaspace       used 33891K, capacity 35026K, committed 35328K, reserved 1079296K
+  class space    used 4103K, capacity 4508K, committed 4608K, reserved 1048576K
+Event: 6.805 GC heap after
+Heap after GC invocations=11 (full 1):
+ PSYoungGen      total 322048K, used 23520K [0x00000000d8000000, 0x00000000ed980000, 0x0000000100000000)
+  eden space 298496K, 0% used [0x00000000d8000000,0x00000000d8000000,0x00000000ea380000)
+  from space 23552K, 99% used [0x00000000ebe80000,0x00000000ed578308,0x00000000ed580000)
+  to   space 27648K, 0% used [0x00000000ea380000,0x00000000ea380000,0x00000000ebe80000)
+ ParOldGen       total 73216K, used 26717K [0x0000000088000000, 0x000000008c780000, 0x00000000d8000000)
+  object space 73216K, 36% used [0x0000000088000000,0x0000000089a17608,0x000000008c780000)
+ Metaspace       used 33891K, capacity 35026K, committed 35328K, reserved 1079296K
+  class space    used 4103K, capacity 4508K, committed 4608K, reserved 1048576K
+}
+Event: 7.140 GC heap before
+{Heap before GC invocations=12 (full 1):
+ PSYoungGen      total 322048K, used 129574K [0x00000000d8000000, 0x00000000ed980000, 0x0000000100000000)
+  eden space 298496K, 35% used [0x00000000d8000000,0x00000000de791800,0x00000000ea380000)
+  from space 23552K, 99% used [0x00000000ebe80000,0x00000000ed578308,0x00000000ed580000)
+  to   space 27648K, 0% used [0x00000000ea380000,0x00000000ea380000,0x00000000ebe80000)
+ ParOldGen       total 73216K, used 26717K [0x0000000088000000, 0x000000008c780000, 0x00000000d8000000)
+  object space 73216K, 36% used [0x0000000088000000,0x0000000089a17608,0x000000008c780000)
+ Metaspace       used 34116K, capacity 35392K, committed 35496K, reserved 1081344K
+  class space    used 4137K, capacity 4590K, committed 4608K, reserved 1048576K
+Event: 7.155 GC heap after
+Heap after GC invocations=12 (full 1):
+ PSYoungGen      total 326144K, used 20747K [0x00000000d8000000, 0x00000000f3300000, 0x0000000100000000)
+  eden space 298496K, 0% used [0x00000000d8000000,0x00000000d8000000,0x00000000ea380000)
+  from space 27648K, 75% used [0x00000000ea380000,0x00000000eb7c2c00,0x00000000ebe80000)
+  to   space 29184K, 0% used [0x00000000f1680000,0x00000000f1680000,0x00000000f3300000)
+ ParOldGen       total 73216K, used 26717K [0x0000000088000000, 0x000000008c780000, 0x00000000d8000000)
+  object space 73216K, 36% used [0x0000000088000000,0x0000000089a17608,0x000000008c780000)
+ Metaspace       used 34116K, capacity 35392K, committed 35496K, reserved 1081344K
+  class space    used 4137K, capacity 4590K, committed 4608K, reserved 1048576K
+}
+Event: 7.155 GC heap before
+{Heap before GC invocations=13 (full 2):
+ PSYoungGen      total 326144K, used 20747K [0x00000000d8000000, 0x00000000f3300000, 0x0000000100000000)
+  eden space 298496K, 0% used [0x00000000d8000000,0x00000000d8000000,0x00000000ea380000)
+  from space 27648K, 75% used [0x00000000ea380000,0x00000000eb7c2c00,0x00000000ebe80000)
+  to   space 29184K, 0% used [0x00000000f1680000,0x00000000f1680000,0x00000000f3300000)
+ ParOldGen       total 73216K, used 26717K [0x0000000088000000, 0x000000008c780000, 0x00000000d8000000)
+  object space 73216K, 36% used [0x0000000088000000,0x0000000089a17608,0x000000008c780000)
+ Metaspace       used 34116K, capacity 35392K, committed 35496K, reserved 1081344K
+  class space    used 4137K, capacity 4590K, committed 4608K, reserved 1048576K
+Event: 7.250 GC heap after
+Heap after GC invocations=13 (full 2):
+ PSYoungGen      total 326144K, used 0K [0x00000000d8000000, 0x00000000f3300000, 0x0000000100000000)
+  eden space 298496K, 0% used [0x00000000d8000000,0x00000000d8000000,0x00000000ea380000)
+  from space 27648K, 0% used [0x00000000ea380000,0x00000000ea380000,0x00000000ebe80000)
+  to   space 29184K, 0% used [0x00000000f1680000,0x00000000f1680000,0x00000000f3300000)
+ ParOldGen       total 116224K, used 35090K [0x0000000088000000, 0x000000008f180000, 0x00000000d8000000)
+  object space 116224K, 30% used [0x0000000088000000,0x000000008a244a08,0x000000008f180000)
+ Metaspace       used 34116K, capacity 35392K, committed 35496K, reserved 1081344K
+  class space    used 4137K, capacity 4590K, committed 4608K, reserved 1048576K
+}
+Event: 9.032 GC heap before
+{Heap before GC invocations=14 (full 2):
+ PSYoungGen      total 326144K, used 298496K [0x00000000d8000000, 0x00000000f3300000, 0x0000000100000000)
+  eden space 298496K, 100% used [0x00000000d8000000,0x00000000ea380000,0x00000000ea380000)
+  from space 27648K, 0% used [0x00000000ea380000,0x00000000ea380000,0x00000000ebe80000)
+  to   space 29184K, 0% used [0x00000000f1680000,0x00000000f1680000,0x00000000f3300000)
+ ParOldGen       total 116224K, used 35090K [0x0000000088000000, 0x000000008f180000, 0x00000000d8000000)
+  object space 116224K, 30% used [0x0000000088000000,0x000000008a244a18,0x000000008f180000)
+ Metaspace       used 34764K, capacity 36094K, committed 36392K, reserved 1081344K
+  class space    used 4193K, capacity 4627K, committed 4736K, reserved 1048576K
+Event: 9.068 GC heap after
+Heap after GC invocations=14 (full 2):
+ PSYoungGen      total 393728K, used 29182K [0x00000000d8000000, 0x00000000f6300000, 0x0000000100000000)
+  eden space 364544K, 0% used [0x00000000d8000000,0x00000000d8000000,0x00000000ee400000)
+  from space 29184K, 99% used [0x00000000f1680000,0x00000000f32ff950,0x00000000f3300000)
+  to   space 51712K, 0% used [0x00000000ee400000,0x00000000ee400000,0x00000000f1680000)
+ ParOldGen       total 116224K, used 85926K [0x0000000088000000, 0x000000008f180000, 0x00000000d8000000)
+  object space 116224K, 73% used [0x0000000088000000,0x000000008d3e9a48,0x000000008f180000)
+ Metaspace       used 34764K, capacity 36094K, committed 36392K, reserved 1081344K
+  class space    used 4193K, capacity 4627K, committed 4736K, reserved 1048576K
+}
+Event: 12.428 GC heap before
+{Heap before GC invocations=15 (full 2):
+ PSYoungGen      total 393728K, used 393726K [0x00000000d8000000, 0x00000000f6300000, 0x0000000100000000)
+  eden space 364544K, 100% used [0x00000000d8000000,0x00000000ee400000,0x00000000ee400000)
+  from space 29184K, 99% used [0x00000000f1680000,0x00000000f32ff950,0x00000000f3300000)
+  to   space 51712K, 0% used [0x00000000ee400000,0x00000000ee400000,0x00000000f1680000)
+ ParOldGen       total 116224K, used 85929K [0x0000000088000000, 0x000000008f180000, 0x00000000d8000000)
+  object space 116224K, 73% used [0x0000000088000000,0x000000008d3ea730,0x000000008f180000)
+ Metaspace       used 34809K, capacity 36126K, committed 36392K, reserved 1081344K
+  class space    used 4198K, capacity 4659K, committed 4736K, reserved 1048576K
+
+Deoptimization events (10 events):
+Event: 9.781 Thread 0x00007efff0009000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007effe1f78adc method=org.codehaus.plexus.archiver.jar.JarArchiver.zipFile(Lorg/apache/commons/compress/parallel/InputStreamSupplier;Lorg/codehaus/plexus/archiver/zip/ConcurrentJarCreator;Ljava/l
+Event: 12.100 Thread 0x00007efff0009000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007effe12a22d8 method=org.codehaus.plexus.archiver.zip.AbstractZipArchiver.maybeSequence([BILjava/io/InputStream;)Ljava/io/InputStream; @ 1
+Event: 12.100 Thread 0x00007efff0009000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007effe124978c method=org.apache.commons.compress.archivers.zip.StreamCompressor.deflate(Ljava/io/InputStream;I)V @ 15
+Event: 12.100 Thread 0x00007efff0009000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007effe124978c method=org.apache.commons.compress.archivers.zip.StreamCompressor.deflate(Ljava/io/InputStream;I)V @ 15
+Event: 12.100 Thread 0x00007efff0009000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007effe124978c method=org.apache.commons.compress.archivers.zip.StreamCompressor.deflate(Ljava/io/InputStream;I)V @ 15
+Event: 12.100 Thread 0x00007efff0009000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007effe124978c method=org.apache.commons.compress.archivers.zip.StreamCompressor.deflate(Ljava/io/InputStream;I)V @ 15
+Event: 12.102 Thread 0x00007efff0009000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007effe1eccf88 method=java.util.BitSet.get(I)Z @ 60
+Event: 12.102 Thread 0x00007efff0009000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007effe1ab04f0 method=sun.net.www.ParseUtil.decode(Ljava/lang/String;)Ljava/lang/String; @ 15
+Event: 12.119 Thread 0x00007efff0009000 Uncommon trap: reason=predicate action=maybe_recompile pc=0x00007effe16c1444 method=java.util.LinkedList.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 45
+Event: 12.119 Thread 0x00007efff0009000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00007effe16ff5fc method=java.util.LinkedList.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 55
+
+Internal exceptions (10 events):
+Event: 5.314 Thread 0x00007efff11b6800 Implicit null exception at 0x00007effe1ec93a9 to 0x00007effe1ec9c61
+Event: 5.314 Thread 0x00007efff1190000 Implicit null exception at 0x00007effe1ed4c60 to 0x00007effe1ed549d
+Event: 5.568 Thread 0x00007efff0009000 Exception <a 'java/lang/NoClassDefFoundError': org/sonatype/aether/graph/DependencyNode> (0x00000000e287a938) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u131/8869/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 199]
+Event: 5.645 Thread 0x00007efff0009000 Implicit null exception at 0x00007effe1af706a to 0x00007effe1af8620
+Event: 5.648 Thread 0x00007efff0009000 Implicit null exception at 0x00007effe1416fa8 to 0x00007effe141731d
+Event: 5.762 Thread 0x00007efff0009000 Implicit null exception at 0x00007effe17b8cab to 0x00007effe17b8f61
+Event: 6.524 Thread 0x00007efff0009000 Exception <a 'java/lang/NoClassDefFoundError': org/sonatype/aether/graph/DependencyNode> (0x00000000e0127128) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u131/8869/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 199]
+Event: 6.555 Thread 0x00007efff0009000 Implicit null exception at 0x00007effe20aea26 to 0x00007effe20b20bd
+Event: 6.758 Thread 0x00007efff0009000 Implicit null exception at 0x00007effe2166e5e to 0x00007effe21698d1
+Event: 6.809 Thread 0x00007efff0009000 Implicit null exception at 0x00007effe217bc0b to 0x00007effe217f9c1
+
+Events (10 events):
+Event: 12.103 loading class sun/nio/cs/ThreadLocalCoders$2 done
+Event: 12.119 Thread 0x00007efff0009000 Uncommon trap: trap_request=0xffffff86 fr.pc=0x00007effe16c1444
+Event: 12.119 Thread 0x00007efff0009000 DEOPT PACKING pc=0x00007effe16c1444 sp=0x00007efff8be1040
+Event: 12.119 Thread 0x00007efff0009000 DEOPT UNPACKING pc=0x00007effe1005229 sp=0x00007efff8be1018 mode 2
+Event: 12.119 Thread 0x00007efff0009000 Uncommon trap: trap_request=0xffffffd6 fr.pc=0x00007effe16ff5fc
+Event: 12.119 Thread 0x00007efff0009000 DEOPT PACKING pc=0x00007effe16ff5fc sp=0x00007efff8be1040
+Event: 12.119 Thread 0x00007efff0009000 DEOPT UNPACKING pc=0x00007effe1005229 sp=0x00007efff8be1000 mode 2
+Event: 12.268 Thread 0x00007efff0009000 DEOPT PACKING pc=0x00007effe16c2913 sp=0x00007efff8be0280
+Event: 12.268 Thread 0x00007efff0009000 DEOPT UNPACKING pc=0x00007effe1047633 sp=0x00007efff8be0000 mode 0
+Event: 12.428 Executing VM operation: ParallelGCFailedAllocation
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:02 1711163                            /usr/local/lib/jdk-8/bin/java
+00600000-00601000 rw-p 00000000 08:02 1711163                            /usr/local/lib/jdk-8/bin/java
+00a96000-00ab7000 rw-p 00000000 00:00 0                                  [heap]
+88000000-93880000 rw-p 00000000 00:00 0 
+93880000-d8000000 ---p 00000000 00:00 0 
+d8000000-f6300000 rw-p 00000000 00:00 0 
+100000000-1004a0000 rw-p 00000000 00:00 0 
+1004a0000-140000000 ---p 00000000 00:00 0 
+7eff50000000-7eff50043000 rw-p 00000000 00:00 0 
+7eff50043000-7eff54000000 ---p 00000000 00:00 0 
+7eff54000000-7eff54043000 rw-p 00000000 00:00 0 
+7eff54043000-7eff58000000 ---p 00000000 00:00 0 
+7eff58000000-7eff58043000 rw-p 00000000 00:00 0 
+7eff58043000-7eff5c000000 ---p 00000000 00:00 0 
+7eff5c000000-7eff5c043000 rw-p 00000000 00:00 0 
+7eff5c043000-7eff60000000 ---p 00000000 00:00 0 
+7eff60000000-7eff60043000 rw-p 00000000 00:00 0 
+7eff60043000-7eff64000000 ---p 00000000 00:00 0 
+7eff64000000-7eff64043000 rw-p 00000000 00:00 0 
+7eff64043000-7eff68000000 ---p 00000000 00:00 0 
+7eff68000000-7eff68043000 rw-p 00000000 00:00 0 
+7eff68043000-7eff6c000000 ---p 00000000 00:00 0 
+7eff6c000000-7eff6c043000 rw-p 00000000 00:00 0 
+7eff6c043000-7eff70000000 ---p 00000000 00:00 0 
+7eff70000000-7eff70021000 rw-p 00000000 00:00 0 
+7eff70021000-7eff74000000 ---p 00000000 00:00 0 
+7eff74000000-7eff74021000 rw-p 00000000 00:00 0 
+7eff74021000-7eff78000000 ---p 00000000 00:00 0 
+7eff78000000-7eff78021000 rw-p 00000000 00:00 0 
+7eff78021000-7eff7c000000 ---p 00000000 00:00 0 
+7eff7c000000-7eff7c021000 rw-p 00000000 00:00 0 
+7eff7c021000-7eff80000000 ---p 00000000 00:00 0 
+7eff80000000-7eff80021000 rw-p 00000000 00:00 0 
+7eff80021000-7eff84000000 ---p 00000000 00:00 0 
+7eff84000000-7eff84021000 rw-p 00000000 00:00 0 
+7eff84021000-7eff88000000 ---p 00000000 00:00 0 
+7eff88000000-7eff89147000 rw-p 00000000 00:00 0 
+7eff89147000-7eff8c000000 ---p 00000000 00:00 0 
+7eff8c000000-7eff8c021000 rw-p 00000000 00:00 0 
+7eff8c021000-7eff90000000 ---p 00000000 00:00 0 
+7eff90000000-7eff915a8000 rw-p 00000000 00:00 0 
+7eff915a8000-7eff94000000 ---p 00000000 00:00 0 
+7eff94000000-7eff955b5000 rw-p 00000000 00:00 0 
+7eff955b5000-7eff98000000 ---p 00000000 00:00 0 
+7eff98000000-7eff9803f000 rw-p 00000000 00:00 0 
+7eff9803f000-7eff9c000000 ---p 00000000 00:00 0 
+7eff9c000000-7eff9d4c8000 rw-p 00000000 00:00 0 
+7eff9d4c8000-7effa0000000 ---p 00000000 00:00 0 
+7effa0000000-7effa0021000 rw-p 00000000 00:00 0 
+7effa0021000-7effa4000000 ---p 00000000 00:00 0 
+7effa52c6000-7effa52d5000 r--s 0009f000 08:02 1186106                    /home/willon/.m2/repository/com/google/inject/guice/3.0/guice-3.0.jar
+7effa52d5000-7effa52d8000 r--s 0001d000 08:02 1185080                    /home/willon/.m2/repository/com/sun/jersey/jersey-client/1.9/jersey-client-1.9.jar
+7effa52d8000-7effa52fa000 r--s 00236000 08:02 1186090                    /home/willon/.m2/repository/org/apache/hadoop/hadoop-yarn-api/2.8.1/hadoop-yarn-api-2.8.1.jar
+7effa52fa000-7effa5314000 r--s 001a0000 08:02 1186115                    /home/willon/.m2/repository/org/apache/hadoop/hadoop-yarn-common/2.8.1/hadoop-yarn-common-2.8.1.jar
+7effa5314000-7effa5321000 r--s 000b3000 08:02 1186105                    /home/willon/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-common/2.8.1/hadoop-mapreduce-client-common-2.8.1.jar
+7effa5321000-7effa532b000 r--s 00081000 08:02 1186092                    /home/willon/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-app/2.8.1/hadoop-mapreduce-client-app-2.8.1.jar
+7effa532b000-7effa532c000 r--s 0000f000 08:02 1183929                    /home/willon/.m2/repository/com/squareup/okio/okio/1.4.0/okio-1.4.0.jar
+7effa532c000-7effa5331000 r--s 00049000 08:02 1183933                    /home/willon/.m2/repository/com/squareup/okhttp/okhttp/2.4.0/okhttp-2.4.0.jar
+7effa5331000-7effa5368000 r--s 003a1000 08:02 1186085                    /home/willon/.m2/repository/org/apache/hadoop/hadoop-hdfs-client/2.8.1/hadoop-hdfs-client-2.8.1.jar
+7effa5368000-7effa53a4000 r--s 00465000 08:02 1186086                    /home/willon/.m2/repository/org/apache/hadoop/hadoop-hdfs/2.8.1/hadoop-hdfs-2.8.1.jar
+7effa53a4000-7effa53a5000 r--s 00007000 08:02 1186084                    /home/willon/.m2/repository/org/apache/hadoop/hadoop-client/2.8.1/hadoop-client-2.8.1.jar
+7effa53a5000-7effa53be000 r--s 00152000 08:02 1183940                    /home/willon/.m2/repository/org/apache/htrace/htrace-core4/4.0.1-incubating/htrace-core4-4.0.1-incubating.jar
+7effa53be000-7effa53c6000 r--s 0003b000 08:02 1184445                    /home/willon/.m2/repository/org/apache/curator/curator-recipes/2.7.1/curator-recipes-2.7.1.jar
+7effa53c6000-7effa53ca000 r--s 0003d000 08:02 1186082                    /home/willon/.m2/repository/com/jcraft/jsch/0.1.51/jsch-0.1.51.jar
+7effa53ca000-7effa53cc000 r--s 0000f000 08:02 1184437                    /home/willon/.m2/repository/org/apache/curator/curator-client/2.7.1/curator-client-2.7.1.jar
+7effa53cc000-7effa53d2000 r--s 00028000 08:02 1184446                    /home/willon/.m2/repository/org/apache/curator/curator-framework/2.7.1/curator-framework-2.7.1.jar
+7effa53d2000-7effa53e9000 r--s 0010e000 08:02 2498172                    /home/willon/.m2/repository/io/netty/netty/3.6.2.Final/netty-3.6.2.Final.jar
+7effa53e9000-7effa53f5000 r--s 000b6000 08:02 1184430                    /home/willon/.m2/repository/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar
+7effa53f5000-7effa53f7000 r--s 00012000 08:02 1184427                    /home/willon/.m2/repository/org/apache/directory/api/api-util/1.0.0-M20/api-util-1.0.0-M20.jar
+7effa53f7000-7effa53f9000 r--s 00003000 08:02 1184353                    /home/willon/.m2/repository/org/apache/directory/api/api-asn1-api/1.0.0-M20/api-asn1-api-1.0.0-M20.jar
+7effa53f9000-7effa53fa000 r--s 0000a000 08:02 1184426                    /home/willon/.m2/repository/org/apache/directory/server/apacheds-i18n/2.0.0-M15/apacheds-i18n-2.0.0-M15.jar
+7effa53fa000-7effa540c000 r--s 00097000 08:02 1184423                    /home/willon/.m2/repository/org/apache/directory/server/apacheds-kerberos-codec/2.0.0-M15/apacheds-kerberos-codec-2.0.0-M15.jar
+7effa540c000-7effa540e000 r--s 0000b000 08:02 1184422                    /home/willon/.m2/repository/net/minidev/json-smart/1.1.1/json-smart-1.1.1.jar
+7effa540e000-7effa5411000 r--s 00029000 08:02 1184401                    /home/willon/.m2/repository/com/nimbusds/nimbus-jose-jwt/3.9/nimbus-jose-jwt-3.9.jar
+7effa5411000-7effa5414000 r--s 0001b000 08:02 1186087                    /home/willon/.m2/repository/org/apache/hadoop/hadoop-auth/2.8.1/hadoop-auth-2.8.1.jar
+7effa5414000-7effa5419000 r--s 0002a000 08:02 1184410                    /home/willon/.m2/repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar
+7effa5419000-7effa5421000 r--s 0007b000 08:02 1183961                    /home/willon/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar
+7effa5421000-7effa5425000 r--s 00014000 08:02 1184454                    /home/willon/.m2/repository/org/tukaani/xz/1.0/xz-1.0.jar
+7effa5425000-7effa542a000 r--s 00036000 08:02 1184432                    /home/willon/.m2/repository/org/apache/commons/commons-compress/1.4.1/commons-compress-1.4.1.jar
+7effa542a000-7effa542c000 r--s 00130000 08:02 1186108                    /home/willon/.m2/repository/org/xerial/snappy/snappy-java/1.0.5/snappy-java-1.0.5.jar
+7effa542c000-7effa542e000 r--s 00006000 08:02 1184400                    /home/willon/.m2/repository/com/thoughtworks/paranamer/paranamer/2.3/paranamer-2.3.jar
+7effa542e000-7effa5437000 r--s 00062000 08:02 1186088                    /home/willon/.m2/repository/org/apache/avro/avro/1.7.7/avro-1.7.7.jar
+7effa5437000-7effa5439000 r--s 00001000 08:02 1184416                    /home/willon/.m2/repository/org/slf4j/slf4j-log4j12/1.7.10/slf4j-log4j12-1.7.10.jar
+7effa5439000-7effa5440000 r--s 00051000 08:02 3161848                    /home/willon/.m2/repository/commons-configuration/commons-configuration/1.9/commons-configuration-1.9.jar
+7effa5440000-7effa5445000 r--s 00041000 08:02 1183944                    /home/willon/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+7effa5445000-7effa544e000 r--s 0007b000 08:02 1184347                    /home/willon/.m2/repository/net/java/dev/jets3t/jets3t/0.9.0/jets3t-0.9.0.jar
+7effa544e000-7effa5460000 r--s 0009d000 08:02 1183945                    /home/willon/.m2/repository/com/sun/jersey/jersey-server/1.9/jersey-server-1.9.jar
+7effa5460000-7effac000000 r--p 00000000 08:02 1311070                    /usr/lib/locale/locale-archive
+7effac000000-7effac021000 rw-p 00000000 00:00 0 
+7effac021000-7effb0000000 ---p 00000000 00:00 0 
+7effb0000000-7effb0021000 rw-p 00000000 00:00 0 
+7effb0021000-7effb4000000 ---p 00000000 00:00 0 
+7effb4000000-7effb428f000 rw-p 00000000 00:00 0 
+7effb428f000-7effb8000000 ---p 00000000 00:00 0 
+7effb8000000-7effb8001000 r--s 00000000 08:02 1184374                    /home/willon/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar
+7effb8001000-7effb8002000 r--s 00007000 08:02 1184414                    /home/willon/.m2/repository/org/slf4j/slf4j-api/1.7.10/slf4j-api-1.7.10.jar
+7effb8002000-7effb8003000 r--s 00004000 08:02 1184387                    /home/willon/.m2/repository/com/jamesmurty/utils/java-xmlbuilder/0.4/java-xmlbuilder-0.4.jar
+7effb8003000-7effb800c000 r--s 0006f000 08:02 1183931                    /home/willon/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar
+7effb800c000-7effb800d000 r--s 0000a000 08:02 1183946                    /home/willon/.m2/repository/asm/asm/3.1/asm-3.1.jar
+7effb800d000-7effb800e000 r--s 00007000 08:02 1184381                    /home/willon/.m2/repository/org/codehaus/jackson/jackson-xc/1.8.3/jackson-xc-1.8.3.jar
+7effb800e000-7effb800f000 r--s 00004000 08:02 1184378                    /home/willon/.m2/repository/org/codehaus/jackson/jackson-jaxrs/1.8.3/jackson-jaxrs-1.8.3.jar
+7effb800f000-7effb801d000 r--s 000b1000 08:02 1183943                    /home/willon/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar
+7effb801d000-7effb8021000 r--s 00035000 08:02 1183962                    /home/willon/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar
+7effb8021000-7effb8023000 r--s 0000e000 08:02 1183148                    /home/willon/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+7effb8023000-7effb8025000 r--s 00004000 08:02 1184371                    /home/willon/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar
+7effb8025000-7effb8028000 r--s 00017000 08:02 1184369                    /home/willon/.m2/repository/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar
+7effb8028000-7effb803b000 r--s 000c7000 08:02 1184367                    /home/willon/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb-impl-2.2.3-1.jar
+7effb803b000-7effb803d000 r--s 0000f000 08:02 1184364                    /home/willon/.m2/repository/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar
+7effb803d000-7effb8041000 r--s 00021000 08:02 1184361                    /home/willon/.m2/repository/com/sun/jersey/jersey-json/1.9/jersey-json-1.9.jar
+7effb8041000-7effb804b000 r--s 00066000 08:02 1183953                    /home/willon/.m2/repository/com/sun/jersey/jersey-core/1.9/jersey-core-1.9.jar
+7effb804b000-7effb804e000 r--s 00016000 08:02 1184359                    /home/willon/.m2/repository/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar
+7effb804e000-7effb804f000 r--s 00004000 08:02 1184358                    /home/willon/.m2/repository/org/mortbay/jetty/jetty-sslengine/6.1.26/jetty-sslengine-6.1.26.jar
+7effb804f000-7effb8053000 r--s 00028000 08:02 1183949                    /home/willon/.m2/repository/org/mortbay/jetty/jetty-util/6.1.26/jetty-util-6.1.26.jar
+7effb8053000-7effb805a000 r--s 0007d000 08:02 1183937                    /home/willon/.m2/repository/org/mortbay/jetty/jetty/6.1.26/jetty-6.1.26.jar
+7effb805a000-7effb805c000 r--s 00018000 08:02 1181806                    /home/willon/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar
+7effb805c000-7effb8069000 r--s 00083000 08:02 1184348                    /home/willon/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar
+7effb8069000-7effb806c000 ---p 00000000 00:00 0 
+7effb806c000-7effb816a000 rw-p 00000000 00:00 0 
+7effb816a000-7effb816d000 ---p 00000000 00:00 0 
+7effb816d000-7effb826b000 rw-p 00000000 00:00 0 
+7effb826b000-7effb8270000 r--s 0003e000 08:02 2500498                    /home/willon/.m2/repository/commons-net/commons-net/3.1/commons-net-3.1.jar
+7effb8270000-7effb8272000 r--s 0000d000 08:02 1183950                    /home/willon/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar
+7effb8272000-7effb8275000 ---p 00000000 00:00 0 
+7effb8275000-7effb8373000 rw-p 00000000 00:00 0 
+7effb8373000-7effb8376000 ---p 00000000 00:00 0 
+7effb8376000-7effb8474000 rw-p 00000000 00:00 0 
+7effb8474000-7effb8476000 r--s 0000e000 08:02 1182031                    /home/willon/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+7effb8476000-7effb847d000 r--s 00049000 08:02 1184349                    /home/willon/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar
+7effb847d000-7effb8480000 ---p 00000000 00:00 0 
+7effb8480000-7effb857e000 rw-p 00000000 00:00 0 
+7effb857e000-7effb8581000 ---p 00000000 00:00 0 
+7effb8581000-7effb867f000 rw-p 00000000 00:00 0 
+7effb867f000-7effb868c000 r--s 000a7000 08:02 1184418                    /home/willon/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar
+7effb868c000-7effb868d000 r--s 00003000 08:02 2498169                    /home/willon/.m2/repository/xmlenc/xmlenc/0.52/xmlenc-0.52.jar
+7effb868d000-7effb8690000 ---p 00000000 00:00 0 
+7effb8690000-7effb878e000 rw-p 00000000 00:00 0 
+7effb878e000-7effb8791000 ---p 00000000 00:00 0 
+7effb8791000-7effb888f000 rw-p 00000000 00:00 0 
+7effb888f000-7effb88ac000 r--s 0016a000 08:02 1184345                    /home/willon/.m2/repository/org/apache/commons/commons-math3/3.1.1/commons-math3-3.1.1.jar
+7effb88ac000-7effb88af000 r--s 00006000 08:02 1184428                    /home/willon/.m2/repository/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar
+7effb88af000-7effb88db000 r--s 00208000 08:02 1182803                    /home/willon/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar
+7effb88db000-7effb88dd000 r--s 0000a000 08:02 1186096                    /home/willon/.m2/repository/org/apache/hadoop/hadoop-annotations/2.8.1/hadoop-annotations-2.8.1.jar
+7effb88dd000-7effb8917000 r--s 00358000 08:02 1186080                    /home/willon/.m2/repository/org/apache/hadoop/hadoop-common/2.8.1/hadoop-common-2.8.1.jar
+7effb8917000-7effb8a01000 rw-p 00000000 00:00 0 
+7effb8a01000-7effb8b17000 ---p 00000000 00:00 0 
+7effb8b17000-7effb8b1b000 r--s 0003a000 08:02 1187186                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-utils/3.0.17/plexus-utils-3.0.17.jar
+7effb8b1b000-7effb8b21000 r--s 00042000 08:02 1182811                    /home/willon/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M5/org.eclipse.sisu.inject-0.0.0.M5.jar
+7effb8b21000-7effb8b23000 r--s 00000000 08:02 1182809                    /home/willon/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar
+7effb8b23000-7effb8b2b000 r--s 00050000 08:02 1182808                    /home/willon/.m2/repository/org/sonatype/sisu/sisu-guice/3.1.0/sisu-guice-3.1.0-no_aop.jar
+7effb8b2b000-7effb8b2e000 r--s 00006000 08:02 1183936                    /home/willon/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar
+7effb8b2e000-7effb8b4c000 r--s 00151000 08:02 1187183                    /home/willon/.m2/repository/com/google/guava/guava/10.0.1/guava-10.0.1.jar
+7effb8b4c000-7effb8b4d000 r--s 00001000 08:02 1182801                    /home/willon/.m2/repository/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar
+7effb8b4d000-7effb8b50000 r--s 00008000 08:02 1182798                    /home/willon/.m2/repository/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar
+7effb8b50000-7effb8b51000 r--s 00005000 08:02 3162069                    /home/willon/.m2/repository/kr/motd/maven/os-maven-plugin/1.2.3.Final/os-maven-plugin-1.2.3.Final.jar
+7effb8b51000-7effb8b52000 r--s 00001000 08:02 1187147                    /home/willon/.m2/repository/org/slf4j/slf4j-nop/1.5.3/slf4j-nop-1.5.3.jar
+7effb8b52000-7effb8b57000 r--s 0002d000 08:02 1187144                    /home/willon/.m2/repository/org/apache/jackrabbit/jackrabbit-jcr-commons/1.5.0/jackrabbit-jcr-commons-1.5.0.jar
+7effb8b57000-7effb8b5d000 r--s 00044000 08:02 1187141                    /home/willon/.m2/repository/org/apache/jackrabbit/jackrabbit-webdav/1.5.0/jackrabbit-webdav-1.5.0.jar
+7effb8b5d000-7effb8b5f000 r--s 0000d000 08:02 1181776                    /home/willon/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+7effb8b5f000-7effb8b61000 r--s 00006000 08:02 1185541                    /home/willon/.m2/repository/commons-codec/commons-codec/1.2/commons-codec-1.2.jar
+7effb8b61000-7effb8b67000 r--s 00045000 08:02 1182889                    /home/willon/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar
+7effb8b67000-7effb8b6a000 r--s 00019000 08:02 3162059                    /home/willon/.m2/repository/nekohtml/nekohtml/1.9.6.2/nekohtml-1.9.6.2.jar
+7effb8b6a000-7effb8b6c000 r--s 00008000 08:02 3162057                    /home/willon/.m2/repository/nekohtml/xercesMinimal/1.9.6.2/xercesMinimal-1.9.6.2.jar
+7effb8b6c000-7effb8b6e000 r--s 00005000 08:02 1187139                    /home/willon/.m2/repository/org/apache/maven/wagon/wagon-http-shared/1.0-beta-7/wagon-http-shared-1.0-beta-7.jar
+7effb8b6e000-7effb8b70000 r--s 00003000 08:02 1187137                    /home/willon/.m2/repository/org/apache/maven/wagon/wagon-webdav-jackrabbit/1.0-beta-7/wagon-webdav-jackrabbit-1.0-beta-7.jar
+7effb8b70000-7effb8b72000 r--s 00001000 08:02 1187092                    /home/willon/.m2/repository/org/apache/maven/wagon/wagon-ssh-external/1.0-alpha-5/wagon-ssh-external-1.0-alpha-5.jar
+7effb8b72000-7effb8b78000 r--s 00080000 08:02 1187086                    /home/willon/.m2/repository/biz/aQute/bndlib/1.15.0/bndlib-1.15.0.jar
+7effb8b78000-7effb8b7a000 r--s 0001b000 08:02 1187085                    /home/willon/.m2/repository/org/apache/felix/maven-bundle-plugin/2.3.4/maven-bundle-plugin-2.3.4.jar
+7effb8b7a000-7effb8b7d000 r--s 00023000 08:02 1187075                    /home/willon/.m2/repository/org/jdom/jdom/1.1/jdom-1.1.jar
+7effb8b7d000-7effb8d7d000 rw-p 00000000 00:00 0 
+7effb8d7d000-7effb8d80000 r--s 0000d000 08:02 1187072                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.jar
+7effb8d80000-7effb8d87000 r--s 00056000 08:02 1187070                    /home/willon/.m2/repository/org/apache/commons/commons-compress/1.9/commons-compress-1.9.jar
+7effb8d87000-7effb8d8b000 r--s 0000f000 08:02 1187071                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-io/2.3.2/plexus-io-2.3.2.jar
+7effb8d8b000-7effb8d8f000 r--s 0001f000 08:02 1187066                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-archiver/2.8.1/plexus-archiver-2.8.1.jar
+7effb8d8f000-7effb8d90000 r--s 00005000 08:02 1187065                    /home/willon/.m2/repository/org/apache/maven/maven-archiver/2.6/maven-archiver-2.6.jar
+7effb8d90000-7effb8d92000 r--s 00009000 08:02 1182786                    /home/willon/.m2/repository/commons-cli/commons-cli/1.2/commons-cli-1.2.jar
+7effb8d92000-7effb8d94000 r--s 00009000 08:02 1182046                    /home/willon/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+7effb8d94000-7effb8d9c000 r--s 00045000 08:02 1182022                    /home/willon/.m2/repository/junit/junit/4.12/junit-4.12.jar
+7effb8d9c000-7effb8d9d000 r--s 00002000 08:02 1182784                    /home/willon/.m2/repository/org/apache/maven/doxia/doxia-logging-api/1.1/doxia-logging-api-1.1.jar
+7effb8d9d000-7effb8d9e000 r--s 00002000 08:02 1187041                    /home/willon/.m2/repository/org/apache/maven/reporting/maven-reporting-api/2.2.0/maven-reporting-api-2.2.0.jar
+7effb8d9e000-7effb8da0000 r--s 0000b000 08:02 1187032                    /home/willon/.m2/repository/org/objenesis/objenesis/2.2/objenesis-2.2.jar
+7effb8da0000-7effb8da9000 r--s 0006b000 08:02 1187030                    /home/willon/.m2/repository/org/easymock/easymock/3.4/easymock-3.4.jar
+7effb8da9000-7effb8dd4000 r--s 0024a000 08:02 1187028                    /home/willon/.m2/repository/biz/aQute/bnd/biz.aQute.bndlib/3.5.0/biz.aQute.bndlib-3.5.0.jar
+7effb8dd4000-7effb8dd8000 r--s 00035000 08:02 1186939                    /home/willon/.m2/repository/org/apache/felix/maven-bundle-plugin/3.5.0/maven-bundle-plugin-3.5.0.jar
+7effb8dd8000-7effb8dda000 r--s 00005000 08:02 1186924                    /home/willon/.m2/repository/org/apache/maven/wagon/wagon-ssh-common/1.0-beta-7/wagon-ssh-common-1.0-beta-7.jar
+7effb8dda000-7effb8ddd000 r--s 0002c000 08:02 1186922                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-utils/1.4.2/plexus-utils-1.4.2.jar
+7effb8ddd000-7effb8dde000 r--s 00003000 08:02 1186920                    /home/willon/.m2/repository/org/apache/maven/wagon/wagon-ssh-external/1.0-beta-7/wagon-ssh-external-1.0-beta-7.jar
+7effb8dde000-7effb8ddf000 r--s 00002000 08:02 1180723                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-6/plexus-interactivity-api-1.0-alpha-6.jar
+7effb8ddf000-7effb8de1000 r--s 00005000 08:02 1186895                    /home/willon/.m2/repository/org/apache/maven/wagon/wagon-ssh-common/2.0/wagon-ssh-common-2.0.jar
+7effb8de1000-7effb8de5000 r--s 00031000 08:02 1186893                    /home/willon/.m2/repository/com/jcraft/jsch/0.1.44-1/jsch-0.1.44-1.jar
+7effb8de5000-7effb8de7000 r--s 00006000 08:02 1186891                    /home/willon/.m2/repository/org/apache/maven/wagon/wagon-ssh/2.0/wagon-ssh-2.0.jar
+7effb8de7000-7effb8dea000 r--s 00022000 08:02 1186863                    /home/willon/.m2/repository/org/apache/felix/org.apache.felix.bundlerepository/1.6.2/org.apache.felix.bundlerepository-1.6.2.jar
+7effb8dea000-7effb8dee000 r--s 00041000 08:02 1182854                    /home/willon/.m2/repository/biz/aQute/bndlib/0.0.357/bndlib-0.0.357.jar
+7effb8dee000-7effb8df1000 r--s 0001e000 08:02 1186861                    /home/willon/.m2/repository/org/apache/felix/maven-bundle-plugin/2.1.0/maven-bundle-plugin-2.1.0.jar
+7effb8df1000-7effb8e00000 r--s 0011c000 08:02 1186847                    /home/willon/.m2/repository/org/jvnet/hudson/svnkit/svnkit/1.1.4-hudson-4/svnkit-1.1.4-hudson-4.jar
+7effb8e00000-7effb9000000 rw-p 00000000 00:00 0 
+7effb9000000-7effb9200000 rw-p 00000000 00:00 0 
+7effb9200000-7effb9203000 ---p 00000000 00:00 0 
+7effb9203000-7effb9301000 rw-p 00000000 00:00 0 
+7effb9301000-7effb9304000 ---p 00000000 00:00 0 
+7effb9304000-7effb9402000 rw-p 00000000 00:00 0 
+7effb9402000-7effb9405000 ---p 00000000 00:00 0 
+7effb9405000-7effb9503000 rw-p 00000000 00:00 0 
+7effb9503000-7effb9506000 ---p 00000000 00:00 0 
+7effb9506000-7effb9604000 rw-p 00000000 00:00 0 
+7effb9604000-7effb9607000 ---p 00000000 00:00 0 
+7effb9607000-7effb9905000 rw-p 00000000 00:00 0 
+7effb9905000-7effb9909000 r--s 00038000 08:02 3162045                    /home/willon/.m2/repository/ch/ethz/ganymed/ganymed-ssh2/build210/ganymed-ssh2-build210.jar
+7effb9909000-7effb990a000 r--s 00004000 08:02 1186845                    /home/willon/.m2/repository/org/jvnet/wagon-svn/wagon-svn/1.8/wagon-svn-1.8.jar
+7effb990a000-7effb990b000 r--s 00002000 08:02 1186825                    /home/willon/.m2/repository/org/apache/maven/shared/maven-osgi/0.1.0/maven-osgi-0.1.0.jar
+7effb990b000-7effb990c000 r--s 00004000 08:02 1186824                    /home/willon/.m2/repository/org/apache/maven/shared/maven-dependency-tree/1.0/maven-dependency-tree-1.0.jar
+7effb990c000-7effb9910000 r--s 0002b000 08:02 1186821                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-utils/1.4.1/plexus-utils-1.4.1.jar
+7effb9910000-7effb9912000 r--s 0001b000 08:02 1186807                    /home/willon/.m2/repository/biz/aQute/bndlib/0.0.160/bndlib-0.0.160.jar
+7effb9912000-7effb9914000 r--s 0001e000 08:02 1186805                    /home/willon/.m2/repository/org/apache/felix/maven-bundle-plugin/1.0.0/maven-bundle-plugin-1.0.0.jar
+7effb9914000-7effb9916000 r--s 00026000 08:02 1183725                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-utils/1.0.4/plexus-utils-1.0.4.jar
+7effb9916000-7effb9918000 r--s 00008000 08:02 1183444                    /home/willon/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar
+7effb9918000-7effb9919000 r--s 00005000 08:02 3162034                    /home/willon/.m2/repository/de/zeigermann/xml/xml-im-exporter/1.1/xml-im-exporter-1.1.jar
+7effb9919000-7effb991c000 r--s 00023000 08:02 1180673                    /home/willon/.m2/repository/jdom/jdom/1.0/jdom-1.0.jar
+7effb991c000-7effb9921000 r--s 00033000 08:02 1186779                    /home/willon/.m2/repository/commons-httpclient/commons-httpclient/2.0.2/commons-httpclient-2.0.2.jar
+7effb9921000-7effb9925000 r--s 00027000 08:02 2633174                    /home/willon/.m2/repository/slide/slide-webdavlib/2.1/slide-webdavlib-2.1.jar
+7effb9925000-7effb9927000 r--s 00003000 08:02 1186777                    /home/willon/.m2/repository/org/apache/maven/wagon/wagon-webdav/1.0-beta-2/wagon-webdav-1.0-beta-2.jar
+7effb9927000-7effb992a000 r--s 00025000 08:02 1186761                    /home/willon/.m2/repository/biz/aQute/bndlib/0.0.255/bndlib-0.0.255.jar
+7effb992a000-7effb992c000 r--s 00020000 08:02 1186759                    /home/willon/.m2/repository/org/apache/felix/maven-bundle-plugin/1.4.1/maven-bundle-plugin-1.4.1.jar
+7effb992c000-7effb992f000 r--s 0002f000 08:02 1186746                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-utils/1.4.7/plexus-utils-1.4.7.jar
+7effb992f000-7effb9932000 r--s 00020000 08:02 1183723                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-archiver/1.0-alpha-7/plexus-archiver-1.0-alpha-7.jar
+7effb9932000-7effb9934000 r--s 00002000 08:02 1186742                    /home/willon/.m2/repository/org/apache/maven/shared/maven-osgi/0.2.0/maven-osgi-0.2.0.jar
+7effb9934000-7effb9936000 r--s 00007000 08:02 1186741                    /home/willon/.m2/repository/org/apache/maven/shared/maven-dependency-tree/1.1/maven-dependency-tree-1.1.jar
+7effb9936000-7effb9937000 r--s 00002000 08:02 1183719                    /home/willon/.m2/repository/org/apache/maven/maven-archiver/2.2/maven-archiver-2.2.jar
+7effb9937000-7effb9938000 r--s 00002000 08:02 1186737                    /home/willon/.m2/repository/org/apache/felix/org.osgi.service.obr/1.0.1/org.osgi.service.obr-1.0.1.jar
+7effb9938000-7effb993a000 r--s 0000d000 08:02 1186735                    /home/willon/.m2/repository/org/apache/felix/org.osgi.core/1.0.0/org.osgi.core-1.0.0.jar
+7effb993a000-7effb993b000 r--s 00001000 08:02 3162025                    /home/willon/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar
+7effb993b000-7effb993c000 r--s 0000a000 08:02 1186733                    /home/willon/.m2/repository/net/sf/kxml/kxml2/2.2.2/kxml2-2.2.2.jar
+7effb993c000-7effb993e000 r--s 00025000 08:02 1186731                    /home/willon/.m2/repository/biz/aQute/bndlib/0.0.238/bndlib-0.0.238.jar
+7effb993e000-7effb9941000 r--s 0001f000 08:02 1186729                    /home/willon/.m2/repository/org/apache/felix/maven-bundle-plugin/1.4.0/maven-bundle-plugin-1.4.0.jar
+7effb9941000-7effb9944000 r--s 00034000 08:02 1185653                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-utils/2.1/plexus-utils-2.1.jar
+7effb9944000-7effb9946000 r--s 00007000 08:02 1186668                    /home/willon/.m2/repository/org/apache/maven/shared/maven-dependency-tree/1.2/maven-dependency-tree-1.2.jar
+7effb9946000-7effb9949000 r--s 0000a000 08:02 1181839                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-io/1.0/plexus-io-1.0.jar
+7effb9949000-7effb994d000 r--s 00028000 08:02 1181838                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-archiver/1.0/plexus-archiver-1.0.jar
+7effb994d000-7effb994e000 r--s 00004000 08:02 1185595                    /home/willon/.m2/repository/org/apache/maven/maven-archiver/2.4.1/maven-archiver-2.4.1.jar
+7effb994e000-7effb9952000 r--s 00024000 08:02 1186666                    /home/willon/.m2/repository/org/osgi/org.osgi.core/4.1.0/org.osgi.core-4.1.0.jar
+7effb9952000-7effb9961000 r--s 000d2000 08:02 1186664                    /home/willon/.m2/repository/biz/aQute/bndlib/1.50.0/bndlib-1.50.0.jar
+7effb9961000-7effb9964000 r--s 0001c000 08:02 1186662                    /home/willon/.m2/repository/org/apache/felix/maven-bundle-plugin/2.3.7/maven-bundle-plugin-2.3.7.jar
+7effb9964000-7effb9966000 r--s 00004000 08:02 1186645                    /home/willon/.m2/repository/org/apache/maven/doxia/doxia-module-xhtml/1.0/doxia-module-xhtml-1.0.jar
+7effb9966000-7effb9967000 r--s 00006000 08:02 1186640                    /home/willon/.m2/repository/org/apache/maven/doxia/doxia-module-xdoc/1.0/doxia-module-xdoc-1.0.jar
+7effb9967000-7effb9968000 r--s 00004000 08:02 1186641                    /home/willon/.m2/repository/org/apache/maven/doxia/doxia-module-fml/1.0/doxia-module-fml-1.0.jar
+7effb9968000-7effb996a000 r--s 0000a000 08:02 1186642                    /home/willon/.m2/repository/org/apache/maven/doxia/doxia-module-apt/1.0/doxia-module-apt-1.0.jar
+7effb996a000-7effb9977000 r--s 0007f000 08:02 1186636                    /home/willon/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2.jar
+7effb9977000-7effb9978000 r--s 0000b000 08:02 1186635                    /home/willon/.m2/repository/org/apache/maven/doxia/doxia-decoration-model/1.0/doxia-decoration-model-1.0.jar
+7effb9978000-7effb997a000 r--s 0000e000 08:02 1181844                    /home/willon/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar
+7effb997a000-7effb9982000 r--s 00058000 08:02 1181843                    /home/willon/.m2/repository/org/apache/velocity/velocity/1.5/velocity-1.5.jar
+7effb9982000-7effb9983000 r--s 00001000 08:02 1186370                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-velocity/1.1.7/plexus-velocity-1.1.7.jar
+7effb9983000-7effb9984000 r--s 00002000 08:02 1181840                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-i18n/1.0-beta-7/plexus-i18n-1.0-beta-7.jar
+7effb9984000-7effb9987000 r--s 0000b000 08:02 1186633                    /home/willon/.m2/repository/org/apache/maven/doxia/doxia-core/1.0/doxia-core-1.0.jar
+7effb9987000-7effb9989000 r--s 0000a000 08:02 1186632                    /home/willon/.m2/repository/org/apache/maven/doxia/doxia-site-renderer/1.0/doxia-site-renderer-1.0.jar
+7effb9989000-7effb998a000 r--s 00002000 08:02 1186629                    /home/willon/.m2/repository/org/apache/maven/doxia/doxia-sink-api/1.0/doxia-sink-api-1.0.jar
+7effb998a000-7effb998e000 r--s 00035000 08:02 1186628                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-utils/3.0.10/plexus-utils-3.0.10.jar
+7effb998e000-7effb9992000 r--s 0001d000 08:02 1181756                    /home/willon/.m2/repository/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.jar
+7effb9992000-7effb9995000 r--s 0000c000 08:02 1186624                    /home/willon/.m2/repository/org/apache/maven/shared/maven-dependency-tree/2.1/maven-dependency-tree-2.1.jar
+7effb9995000-7effb9996000 r--s 00002000 08:02 1186600                    /home/willon/.m2/repository/org/apache/maven/reporting/maven-reporting-api/2.0.7/maven-reporting-api-2.0.7.jar
+7effb9996000-7effb99a4000 r--s 00088000 08:02 1186592                    /home/willon/.m2/repository/org/osgi/org.osgi.compendium/4.2.0/org.osgi.compendium-4.2.0.jar
+7effb99a4000-7effb99a6000 r--s 0000f000 08:02 1186590                    /home/willon/.m2/repository/org/apache/felix/org.apache.felix.utils/1.6.0/org.apache.felix.utils-1.6.0.jar
+7effb99a6000-7effb99c4000 r--s 00196000 08:02 1186582                    /home/willon/.m2/repository/biz/aQute/bnd/bndlib/2.3.0/bndlib-2.3.0.jar
+7effb99c4000-7effb9bc4000 rw-p 00000000 00:00 0 
+7effb9bc4000-7effb9dc4000 rw-p 00000000 00:00 0 
+7effb9dc4000-7effb9fc4000 rw-p 00000000 00:00 0 
+7effb9fc4000-7effba1c4000 rw-p 00000000 00:00 0 
+7effba1c4000-7effba1d5000 r-xp 00000000 08:02 1713195                    /usr/local/lib/jdk-8/jre/lib/amd64/libnio.so
+7effba1d5000-7effba3d4000 ---p 00011000 08:02 1713195                    /usr/local/lib/jdk-8/jre/lib/amd64/libnio.so
+7effba3d4000-7effba3d5000 rw-p 00010000 08:02 1713195                    /usr/local/lib/jdk-8/jre/lib/amd64/libnio.so
+7effba3d5000-7effba5d5000 rw-p 00000000 00:00 0 
+7effba5d5000-7effba7d5000 rw-p 00000000 00:00 0 
+7effba7d5000-7effba9d5000 rw-p 00000000 00:00 0 
+7effba9d5000-7effba9d6000 ---p 00000000 00:00 0 
+7effba9d6000-7effbaad6000 rw-p 00000000 00:00 0 
+7effbaad6000-7effbaad9000 ---p 00000000 00:00 0 
+7effbaad9000-7effbabd7000 rw-p 00000000 00:00 0 
+7effbabd7000-7effbabed000 r-xp 00000000 08:02 1713192                    /usr/local/lib/jdk-8/jre/lib/amd64/libnet.so
+7effbabed000-7effbaded000 ---p 00016000 08:02 1713192                    /usr/local/lib/jdk-8/jre/lib/amd64/libnet.so
+7effbaded000-7effbadee000 rw-p 00016000 08:02 1713192                    /usr/local/lib/jdk-8/jre/lib/amd64/libnet.so
+7effbadee000-7effbadf1000 ---p 00000000 00:00 0 
+7effbadf1000-7effbaeef000 rw-p 00000000 00:00 0 
+7effbaeef000-7effbaef2000 ---p 00000000 00:00 0 
+7effbaef2000-7effbaff0000 rw-p 00000000 00:00 0 
+7effbaff0000-7effbaff3000 ---p 00000000 00:00 0 
+7effbaff3000-7effbb0f1000 rw-p 00000000 00:00 0 
+7effbb0f1000-7effbb0f4000 ---p 00000000 00:00 0 
+7effbb0f4000-7effbb1f2000 rw-p 00000000 00:00 0 
+7effbb1f2000-7effbb1f5000 ---p 00000000 00:00 0 
+7effbb1f5000-7effbb2f3000 rw-p 00000000 00:00 0 
+7effbb2f3000-7effbb2f6000 ---p 00000000 00:00 0 
+7effbb2f6000-7effbb3f4000 rw-p 00000000 00:00 0 
+7effbb3f4000-7effbb3f7000 ---p 00000000 00:00 0 
+7effbb3f7000-7effbb4f5000 rw-p 00000000 00:00 0 
+7effbb4f5000-7effbb4f8000 ---p 00000000 00:00 0 
+7effbb4f8000-7effbb5f6000 rw-p 00000000 00:00 0 
+7effbb5f6000-7effbb5f7000 ---p 00000000 00:00 0 
+7effbb5f7000-7effbc000000 rw-p 00000000 00:00 0 
+7effbc000000-7effbc021000 rw-p 00000000 00:00 0 
+7effbc021000-7effc0000000 ---p 00000000 00:00 0 
+7effc0000000-7effc0002000 r--s 00012000 08:02 1186588                    /home/willon/.m2/repository/org/easymock/easymock/2.4/easymock-2.4.jar
+7effc0002000-7effc0006000 r--s 00026000 08:02 1186586                    /home/willon/.m2/repository/org/apache/felix/org.apache.felix.bundlerepository/1.6.6/org.apache.felix.bundlerepository-1.6.6.jar
+7effc0006000-7effc000d000 r--s 0004f000 08:02 1186584                    /home/willon/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar
+7effc000d000-7effc0010000 r--s 00028000 08:02 1186581                    /home/willon/.m2/repository/org/apache/felix/maven-bundle-plugin/2.5.0/maven-bundle-plugin-2.5.0.jar
+7effc0010000-7effc0016000 r--s 00033000 08:02 1180807                    /home/willon/.m2/repository/commons-codec/commons-codec/1.6/commons-codec-1.6.jar
+7effc0016000-7effc001a000 r--s 00039000 08:02 1182192                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.jar
+7effc001a000-7effc001b000 r--s 00005000 08:02 1186224                    /home/willon/.m2/repository/org/apache/maven/maven-archiver/3.1.1/maven-archiver-3.1.1.jar
+7effc001b000-7effc001e000 r--s 00012000 08:02 1186223                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-io/2.7.1/plexus-io-2.7.1.jar
+7effc001e000-7effc0020000 r--s 00001000 08:02 1182196                    /home/willon/.m2/repository/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.jar
+7effc0020000-7effc0022000 r--s 0000b000 08:02 1182194                    /home/willon/.m2/repository/org/apache/maven/shared/maven-filtering/3.1.1/maven-filtering-3.1.1.jar
+7effc0022000-7effc0026000 r--s 0002f000 08:02 1182142                    /home/willon/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar
+7effc0026000-7effc0029000 r--s 00008000 08:02 1186215                    /home/willon/.m2/repository/org/apache/maven/shared/maven-shared-io/3.0.0/maven-shared-io-3.0.0.jar
+7effc0029000-7effc002b000 r--s 00007000 08:02 1186214                    /home/willon/.m2/repository/org/apache/maven/shared/file-management/3.0.0/file-management-3.0.0.jar
+7effc002b000-7effc002f000 r--s 00015000 08:02 1186211                    /home/willon/.m2/repository/org/tukaani/xz/1.5/xz-1.5.jar
+7effc002f000-7effc0031000 r--s 0000d000 08:02 1186209                    /home/willon/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar
+7effc0031000-7effc0039000 r--s 00060000 08:02 1186207                    /home/willon/.m2/repository/org/apache/commons/commons-compress/1.11/commons-compress-1.11.jar
+7effc0039000-7effc003e000 r--s 00029000 08:02 1186205                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-archiver/3.4/plexus-archiver-3.4.jar
+7effc003e000-7effc0041000 r--s 00011000 08:02 1182198                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.24/plexus-interpolation-1.24.jar
+7effc0041000-7effc0046000 r--s 0001a000 08:02 1180795                    /home/willon/.m2/repository/org/apache/maven/shared/maven-artifact-transfer/0.9.0/maven-artifact-transfer-0.9.0.jar
+7effc0046000-7effc0049000 r--s 00025000 08:02 1182140                    /home/willon/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.jar
+7effc0049000-7effc004c000 r--s 0000d000 08:02 1186204                    /home/willon/.m2/repository/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.jar
+7effc004c000-7effc004e000 r--s 00000000 08:02 1180662                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.jar
+7effc004e000-7effc0052000 r--s 00017000 08:02 1180768                    /home/willon/.m2/repository/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar
+7effc0052000-7effc005d000 r--s 00069000 08:02 1180737                    /home/willon/.m2/repository/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar
+7effc005d000-7effc0062000 r--s 00021000 08:02 1180736                    /home/willon/.m2/repository/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar
+7effc0062000-7effc0066000 r--s 00037000 08:02 1186127                    /home/willon/.m2/repository/org/apache/maven/plugins/maven-assembly-plugin/3.0.0/maven-assembly-plugin-3.0.0.jar
+7effc0066000-7effc006a000 r--s 00034000 08:02 1179765                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.jar
+7effc006a000-7effc006e000 r--s 0002f000 08:02 1180351                    /home/willon/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar
+7effc006e000-7effc0071000 r--s 0000c000 08:02 1180340                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.jar
+7effc0071000-7effc0076000 r--s 00029000 08:02 1180338                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-archiver/2.1/plexus-archiver-2.1.jar
+7effc0076000-7effc0078000 r--s 0000d000 08:02 1180336                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.15/plexus-interpolation-1.15.jar
+7effc0078000-7effc007a000 r--s 00004000 08:02 1180334                    /home/willon/.m2/repository/org/apache/maven/maven-archiver/2.5/maven-archiver-2.5.jar
+7effc007a000-7effc007c000 r--s 00007000 08:02 1180266                    /home/willon/.m2/repository/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.jar
+7effc007c000-7effc007e000 r--s 00002000 08:02 1181135                    /home/willon/.m2/repository/org/apache/maven/plugin-tools/maven-plugin-annotations/3.1/maven-plugin-annotations-3.1.jar
+7effc007e000-7effc007f000 r--s 00002000 08:02 1181128                    /home/willon/.m2/repository/org/apache/maven/reporting/maven-reporting-api/2.0.9/maven-reporting-api-2.0.9.jar
+7effc007f000-7effc0083000 r--s 00035000 08:02 1181127                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.jar
+7effc0083000-7effc00fd000 r--s 010f6000 08:02 1711270                    /usr/local/lib/jdk-8/lib/tools.jar
+7effc00fd000-7effc4000000 rw-p 00000000 00:00 0 
+7effc4000000-7effc4021000 rw-p 00000000 00:00 0 
+7effc4021000-7effc8000000 ---p 00000000 00:00 0 
+7effc8000000-7effc8021000 rw-p 00000000 00:00 0 
+7effc8021000-7effcc000000 ---p 00000000 00:00 0 
+7effcc000000-7effcc021000 rw-p 00000000 00:00 0 
+7effcc021000-7effd0000000 ---p 00000000 00:00 0 
+7effd0000000-7effd0021000 rw-p 00000000 00:00 0 
+7effd0021000-7effd4000000 ---p 00000000 00:00 0 
+7effd4000000-7effd4021000 rw-p 00000000 00:00 0 
+7effd4021000-7effd8000000 ---p 00000000 00:00 0 
+7effd8000000-7effd8021000 rw-p 00000000 00:00 0 
+7effd8021000-7effdc000000 ---p 00000000 00:00 0 
+7effdc000000-7effdc021000 rw-p 00000000 00:00 0 
+7effdc021000-7effe0000000 ---p 00000000 00:00 0 
+7effe0000000-7effe0002000 r--s 00006000 08:02 1181124                    /home/willon/.m2/repository/org/apache/maven/shared/maven-common-artifact-filters/1.3/maven-common-artifact-filters-1.3.jar
+7effe0002000-7effe0008000 r--s 00048000 08:02 1181122                    /home/willon/.m2/repository/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar
+7effe0008000-7effe000d000 r--s 0003c000 08:02 1181120                    /home/willon/.m2/repository/org/apache/maven/surefire/maven-surefire-common/2.12.4/maven-surefire-common-2.12.4.jar
+7effe000d000-7effe0011000 r--s 00019000 08:02 1181118                    /home/willon/.m2/repository/org/apache/maven/surefire/surefire-api/2.12.4/surefire-api-2.12.4.jar
+7effe0011000-7effe0013000 r--s 00007000 08:02 1181116                    /home/willon/.m2/repository/org/apache/maven/surefire/surefire-booter/2.12.4/surefire-booter-2.12.4.jar
+7effe0013000-7effe0014000 r--s 00007000 08:02 1181055                    /home/willon/.m2/repository/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.jar
+7effe0014000-7effe0017000 r--s 0001b000 08:02 1181017                    /home/willon/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar
+7effe0017000-7effe0025000 r--s 0008f000 08:02 1181014                    /home/willon/.m2/repository/com/google/collections/google-collections/1.0/google-collections-1.0.jar
+7effe0025000-7effe0026000 r--s 0000a000 08:02 1181013                    /home/willon/.m2/repository/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.jar
+7effe0026000-7effe002d000 r--s 00051000 08:02 1181011                    /home/willon/.m2/repository/log4j/log4j/1.2.12/log4j-1.2.12.jar
+7effe002d000-7effe0031000 r--s 0001d000 08:02 1181008                    /home/willon/.m2/repository/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.jar
+7effe0031000-7effe0032000 r--s 00004000 08:02 1186278                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-compiler-javac/2.5/plexus-compiler-javac-2.5.jar
+7effe0032000-7effe0034000 r--s 00000000 08:02 1186276                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-compiler-manager/2.5/plexus-compiler-manager-2.5.jar
+7effe0034000-7effe0036000 r--s 00005000 08:02 1186275                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-compiler-api/2.5/plexus-compiler-api-2.5.jar
+7effe0036000-7effe0038000 r--s 00000000 08:02 1180991                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar
+7effe0038000-7effe003a000 r--s 00002000 08:02 1180989                    /home/willon/.m2/repository/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.jar
+7effe003a000-7effe003c000 r--s 00006000 08:02 1180805                    /home/willon/.m2/repository/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.jar
+7effe003c000-7effe0040000 r--s 00026000 08:02 1186271                    /home/willon/.m2/repository/org/apache/maven/shared/maven-shared-utils/0.7/maven-shared-utils-0.7.jar
+7effe0040000-7effe0042000 r--s 00002000 08:02 1180780                    /home/willon/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar
+7effe0042000-7effe0043000 r--s 00006000 08:02 1180773                    /home/willon/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar
+7effe0043000-7effe004b000 r--s 00049000 08:02 1182767                    /home/willon/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar
+7effe004b000-7effe004d000 r--s 00003000 08:02 1182776                    /home/willon/.m2/repository/org/slf4j/jcl-over-slf4j/1.5.6/jcl-over-slf4j-1.5.6.jar
+7effe004d000-7effe004f000 r--s 00001000 08:02 1182774                    /home/willon/.m2/repository/org/slf4j/slf4j-jdk14/1.5.6/slf4j-jdk14-1.5.6.jar
+7effe004f000-7effe0051000 r--s 0000b000 08:02 1182758                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.11/plexus-interpolation-1.11.jar
+7effe0051000-7effe0055000 r--s 00034000 08:02 1186265                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-utils/1.5.15/plexus-utils-1.5.15.jar
+7effe0055000-7effe0057000 r--s 0000a000 08:02 1186233                    /home/willon/.m2/repository/org/apache/maven/plugins/maven-compiler-plugin/3.3/maven-compiler-plugin-3.3.jar
+7effe0057000-7effe0059000 r--s 0000d000 08:02 1180251                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.13/plexus-interpolation-1.13.jar
+7effe0059000-7effe005a000 r--s 00001000 08:02 1180250                    /home/willon/.m2/repository/org/sonatype/plexus/plexus-build-api/0.0.4/plexus-build-api-0.0.4.jar
+7effe005a000-7effe005c000 r--s 00009000 08:02 1180248                    /home/willon/.m2/repository/org/apache/maven/shared/maven-filtering/1.1/maven-filtering-1.1.jar
+7effe005c000-7effe0060000 r--s 00033000 08:02 1180242                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.jar
+7effe0060000-7effe0063000 r--s 0001b000 08:02 1180241                    /home/willon/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+7effe0063000-7effe0065000 r--s 00002000 08:02 1180226                    /home/willon/.m2/repository/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.jar
+7effe0065000-7effe0067000 r--s 00006000 08:02 1180218                    /home/willon/.m2/repository/commons-cli/commons-cli/1.0/commons-cli-1.0.jar
+7effe0067000-7effe0068000 r--s 00001000 08:02 1180212                    /home/willon/.m2/repository/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-7/doxia-sink-api-1.0-alpha-7.jar
+7effe0068000-7effe0069000 r--s 00002000 08:02 1180210                    /home/willon/.m2/repository/org/apache/maven/reporting/maven-reporting-api/2.0.6/maven-reporting-api-2.0.6.jar
+7effe0069000-7effe006b000 r--s 00006000 08:02 1179813                    /home/willon/.m2/repository/org/apache/maven/plugins/maven-resources-plugin/2.6/maven-resources-plugin-2.6.jar
+7effe006b000-7effe0070000 r--s 0009a000 08:02 1713035                    /usr/local/lib/jdk-8/jre/lib/jsse.jar
+7effe0070000-7effe007a000 r--s 00116000 08:02 1713046                    /usr/local/lib/jdk-8/jre/lib/ext/localedata.jar
+7effe007a000-7effe007b000 r--s 00006000 08:02 787891                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/maven-repository-metadata-3.3.9.jar
+7effe007b000-7effe007c000 r--s 00002000 08:02 787910                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/slf4j-simple-1.7.5.jar
+7effe007c000-7effe007e000 r--s 00000000 08:02 787856                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/aopalliance-1.0.jar
+7effe007e000-7effe007f000 r--s 0000a000 08:02 787893                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/maven-settings-3.3.9.jar
+7effe007f000-7effe0081000 r--s 00002000 08:02 787901                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/plexus-cipher-1.7.jar
+7effe0081000-7effe0083000 r--s 0000f000 08:02 787873                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/maven-aether-provider-3.3.9.jar
+7effe0083000-7effe0087000 r--s 00038000 08:02 787907                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/plexus-utils-3.0.22.jar
+7effe0087000-7effe008a000 r--s 0000d000 08:02 787904                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/plexus-interpolation-1.21.jar
+7effe008a000-7effe008d000 r--s 00013000 08:02 787883                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/maven-embedder-3.3.9.jar
+7effe008d000-7effe0090000 r--s 00008000 08:02 787857                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/cdi-api-1.0.jar
+7effe0090000-7effe0092000 r--s 0000a000 08:02 787889                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/maven-plugin-api-3.3.9.jar
+7effe0092000-7effe0093000 r--s 00002000 08:02 787915                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/wagon-http-shared-2.10.jar
+7effe0093000-7effe0095000 r--s 00009000 08:02 787859                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/commons-cli-1.2.jar
+7effe0095000-7effe0097000 r--s 00009000 08:02 787894                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/maven-settings-builder-3.3.9.jar
+7effe0097000-7effe00c5000 r--s 001fa000 08:02 787914                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/wagon-http-2.10-shaded.jar
+7effe00c5000-7effe00c8000 r--s 0000b000 08:02 787918                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/wagon-provider-api-2.10.jar
+7effe00c8000-7effe00ca000 r--s 00005000 08:02 787852                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/aether-transport-wagon-1.0.2.v20150114.jar
+7effe00ca000-7effe00cc000 r--s 00006000 08:02 787850                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/aether-spi-1.0.2.v20150114.jar
+7effe00cc000-7effe00ce000 r--s 0000c000 08:02 787875                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/maven-artifact-3.3.9.jar
+7effe00ce000-7effe00d6000 r--s 00055000 08:02 787897                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/org.eclipse.sisu.inject-0.3.2.jar
+7effe00d6000-7effe00df000 r--s 0005f000 08:02 787867                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/guice-4.0-no_aop.jar
+7effe00df000-7effe00e4000 r--s 00041000 08:02 787861                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/commons-lang-2.6.jar
+7effe00e4000-7effe00f1000 r--s 0008f000 08:02 787881                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/maven-core-3.3.9.jar
+7effe00f1000-7effe1000000 rw-p 00000000 00:00 0 
+7effe1000000-7effe2440000 rwxp 00000000 00:00 0 
+7effe2440000-7efff0000000 ---p 00000000 00:00 0 
+7efff0000000-7efff1dd3000 rw-p 00000000 00:00 0 
+7efff1dd3000-7efff4000000 ---p 00000000 00:00 0 
+7efff4000000-7efff4001000 r--s 00000000 08:02 787868                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/javax.inject-1.jar
+7efff4001000-7efff4004000 r--s 00026000 08:02 787885                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/maven-model-3.3.9.jar
+7efff4004000-7efff4005000 r--s 00001000 08:02 787871                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/jsr250-api-1.0.jar
+7efff4005000-7efff4007000 r--s 00005000 08:02 787908                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/slf4j-api-1.7.5.jar
+7efff4007000-7efff400b000 r--s 00027000 08:02 787860                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/commons-io-2.2.jar
+7efff400b000-7efff4011000 r--s 0002d000 08:02 787899                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/org.eclipse.sisu.plexus-0.3.2.jar
+7efff4011000-7efff403c000 r--s 001fc000 08:02 787866                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/guava-18.0.jar
+7efff403c000-7efff4043000 r--s 00064000 08:02 787862                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/commons-lang3-3.4.jar
+7efff4043000-7efff4047000 r--s 00027000 08:02 787848                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/aether-impl-1.0.2.v20150114.jar
+7efff4047000-7efff404b000 r--s 00020000 08:02 787854                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/aether-util-1.0.2.v20150114.jar
+7efff404b000-7efff4224000 r--s 03d40000 08:02 1712983                    /usr/local/lib/jdk-8/jre/lib/rt.jar
+7efff4224000-7efff4e5a000 rw-p 00000000 00:00 0 
+7efff4e5a000-7efff4e5b000 ---p 00000000 00:00 0 
+7efff4e5b000-7efff4f5b000 rw-p 00000000 00:00 0 
+7efff4f5b000-7efff4f5c000 ---p 00000000 00:00 0 
+7efff4f5c000-7efff505c000 rw-p 00000000 00:00 0 
+7efff505c000-7efff505d000 ---p 00000000 00:00 0 
+7efff505d000-7efff515d000 rw-p 00000000 00:00 0 
+7efff515d000-7efff515e000 ---p 00000000 00:00 0 
+7efff515e000-7efff525e000 rw-p 00000000 00:00 0 
+7efff525e000-7efff525f000 ---p 00000000 00:00 0 
+7efff525f000-7efff535f000 rw-p 00000000 00:00 0 
+7efff535f000-7efff5360000 ---p 00000000 00:00 0 
+7efff5360000-7efff5460000 rw-p 00000000 00:00 0 
+7efff5460000-7efff5461000 ---p 00000000 00:00 0 
+7efff5461000-7efff5561000 rw-p 00000000 00:00 0 
+7efff5561000-7efff5562000 ---p 00000000 00:00 0 
+7efff5562000-7efff56bf000 rw-p 00000000 00:00 0 
+7efff56bf000-7efff58e2000 ---p 00000000 00:00 0 
+7efff58e2000-7efff593f000 rw-p 00000000 00:00 0 
+7efff593f000-7efff5b62000 ---p 00000000 00:00 0 
+7efff5b62000-7efff5c54000 rw-p 00000000 00:00 0 
+7efff5c54000-7efff5ca2000 ---p 00000000 00:00 0 
+7efff5ca2000-7efff5cf4000 rw-p 00000000 00:00 0 
+7efff5cf4000-7efff6063000 ---p 00000000 00:00 0 
+7efff6063000-7efff607d000 r-xp 00000000 08:02 1713188                    /usr/local/lib/jdk-8/jre/lib/amd64/libzip.so
+7efff607d000-7efff627d000 ---p 0001a000 08:02 1713188                    /usr/local/lib/jdk-8/jre/lib/amd64/libzip.so
+7efff627d000-7efff627e000 rw-p 0001a000 08:02 1713188                    /usr/local/lib/jdk-8/jre/lib/amd64/libzip.so
+7efff627e000-7efff6288000 r-xp 00000000 08:02 1311873                    /usr/lib64/libnss_files-2.24.so
+7efff6288000-7efff6488000 ---p 0000a000 08:02 1311873                    /usr/lib64/libnss_files-2.24.so
+7efff6488000-7efff6489000 r--p 0000a000 08:02 1311873                    /usr/lib64/libnss_files-2.24.so
+7efff6489000-7efff648a000 rw-p 0000b000 08:02 1311873                    /usr/lib64/libnss_files-2.24.so
+7efff648a000-7efff6490000 rw-p 00000000 00:00 0 
+7efff6490000-7efff649a000 r-xp 00000000 08:02 1713197                    /usr/local/lib/jdk-8/jre/lib/amd64/libinstrument.so
+7efff649a000-7efff6699000 ---p 0000a000 08:02 1713197                    /usr/local/lib/jdk-8/jre/lib/amd64/libinstrument.so
+7efff6699000-7efff669a000 rw-p 00009000 08:02 1713197                    /usr/local/lib/jdk-8/jre/lib/amd64/libinstrument.so
+7efff669a000-7efff66c5000 r-xp 00000000 08:02 1713182                    /usr/local/lib/jdk-8/jre/lib/amd64/libjava.so
+7efff66c5000-7efff68c4000 ---p 0002b000 08:02 1713182                    /usr/local/lib/jdk-8/jre/lib/amd64/libjava.so
+7efff68c4000-7efff68c6000 rw-p 0002a000 08:02 1713182                    /usr/local/lib/jdk-8/jre/lib/amd64/libjava.so
+7efff68c6000-7efff68d3000 r-xp 00000000 08:02 1713187                    /usr/local/lib/jdk-8/jre/lib/amd64/libverify.so
+7efff68d3000-7efff6ad2000 ---p 0000d000 08:02 1713187                    /usr/local/lib/jdk-8/jre/lib/amd64/libverify.so
+7efff6ad2000-7efff6ad4000 rw-p 0000c000 08:02 1713187                    /usr/local/lib/jdk-8/jre/lib/amd64/libverify.so
+7efff6ad4000-7efff6adb000 r-xp 00000000 08:02 1311964                    /usr/lib64/librt-2.24.so
+7efff6adb000-7efff6cda000 ---p 00007000 08:02 1311964                    /usr/lib64/librt-2.24.so
+7efff6cda000-7efff6cdb000 r--p 00006000 08:02 1311964                    /usr/lib64/librt-2.24.so
+7efff6cdb000-7efff6cdc000 rw-p 00007000 08:02 1311964                    /usr/lib64/librt-2.24.so
+7efff6cdc000-7efff6de4000 r-xp 00000000 08:02 1311655                    /usr/lib64/libm-2.24.so
+7efff6de4000-7efff6fe3000 ---p 00108000 08:02 1311655                    /usr/lib64/libm-2.24.so
+7efff6fe3000-7efff6fe4000 r--p 00107000 08:02 1311655                    /usr/lib64/libm-2.24.so
+7efff6fe4000-7efff6fe5000 rw-p 00108000 08:02 1311655                    /usr/lib64/libm-2.24.so
+7efff6fe5000-7efff7cb4000 r-xp 00000000 08:02 1713165                    /usr/local/lib/jdk-8/jre/lib/amd64/server/libjvm.so
+7efff7cb4000-7efff7eb4000 ---p 00ccf000 08:02 1713165                    /usr/local/lib/jdk-8/jre/lib/amd64/server/libjvm.so
+7efff7eb4000-7efff7f8d000 rw-p 00ccf000 08:02 1713165                    /usr/local/lib/jdk-8/jre/lib/amd64/server/libjvm.so
+7efff7f8d000-7efff7fd8000 rw-p 00000000 00:00 0 
+7efff7fd8000-7efff8195000 r-xp 00000000 08:02 1311562                    /usr/lib64/libc-2.24.so
+7efff8195000-7efff8394000 ---p 001bd000 08:02 1311562                    /usr/lib64/libc-2.24.so
+7efff8394000-7efff8398000 r--p 001bc000 08:02 1311562                    /usr/lib64/libc-2.24.so
+7efff8398000-7efff839a000 rw-p 001c0000 08:02 1311562                    /usr/lib64/libc-2.24.so
+7efff839a000-7efff839e000 rw-p 00000000 00:00 0 
+7efff839e000-7efff83a1000 r-xp 00000000 08:02 1311612                    /usr/lib64/libdl-2.24.so
+7efff83a1000-7efff85a0000 ---p 00003000 08:02 1311612                    /usr/lib64/libdl-2.24.so
+7efff85a0000-7efff85a1000 r--p 00002000 08:02 1311612                    /usr/lib64/libdl-2.24.so
+7efff85a1000-7efff85a2000 rw-p 00003000 08:02 1311612                    /usr/lib64/libdl-2.24.so
+7efff85a2000-7efff85b7000 r-xp 00000000 08:02 1712798                    /usr/local/lib/jdk-8/lib/amd64/jli/libjli.so
+7efff85b7000-7efff87b7000 ---p 00015000 08:02 1712798                    /usr/local/lib/jdk-8/lib/amd64/jli/libjli.so
+7efff87b7000-7efff87b8000 rw-p 00015000 08:02 1712798                    /usr/local/lib/jdk-8/lib/amd64/jli/libjli.so
+7efff87b8000-7efff87d0000 r-xp 00000000 08:02 1311878                    /usr/lib64/libpthread-2.24.so
+7efff87d0000-7efff89d0000 ---p 00018000 08:02 1311878                    /usr/lib64/libpthread-2.24.so
+7efff89d0000-7efff89d1000 r--p 00018000 08:02 1311878                    /usr/lib64/libpthread-2.24.so
+7efff89d1000-7efff89d2000 rw-p 00019000 08:02 1311878                    /usr/lib64/libpthread-2.24.so
+7efff89d2000-7efff89d6000 rw-p 00000000 00:00 0 
+7efff89d6000-7efff89fc000 r-xp 00000000 08:02 1311467                    /usr/lib64/ld-2.24.so
+7efff89fc000-7efff89fd000 r--s 00008000 08:02 787846                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/aether-connector-basic-1.0.2.v20150114.jar
+7efff89fd000-7efff89fe000 r--s 00002000 08:02 787912                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/wagon-file-2.10.jar
+7efff89fe000-7efff8a03000 r--s 00027000 08:02 787886                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/maven-model-builder-3.3.9.jar
+7efff8a03000-7efff8a09000 r--s 00041000 08:02 787879                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/maven-compat-3.3.9.jar
+7efff8a09000-7efff8a0b000 r--s 00000000 08:02 787903                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/plexus-component-annotations-1.6.jar
+7efff8a0b000-7efff8a0c000 r--s 00003000 08:02 787877                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/maven-builder-support-3.3.9.jar
+7efff8a0c000-7efff8a12000 r--s 00042000 08:02 787869                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/jsoup-1.7.2.jar
+7efff8a12000-7efff8a13000 r--s 00006000 08:02 787905                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/plexus-sec-dispatcher-1.3.jar
+7efff8a13000-7efff8ae3000 rw-p 00000000 00:00 0 
+7efff8ae3000-7efff8ae6000 ---p 00000000 00:00 0 
+7efff8ae6000-7efff8be6000 rw-p 00000000 00:00 0 
+7efff8be6000-7efff8beb000 r--s 0001d000 08:02 787844                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/lib/aether-api-1.0.2.v20150114.jar
+7efff8beb000-7efff8bed000 r--s 0001a000 08:02 2630578                    /home/willon/Software/idea17-3/lib/idea_rt.jar
+7efff8bed000-7efff8bef000 r--s 0000b000 08:02 787837                     /home/willon/Software/idea17-3/plugins/maven/lib/maven3/boot/plexus-classworlds-2.5.2.jar
+7efff8bef000-7efff8bf7000 rw-s 00000000 00:27 163337                     /tmp/hsperfdata_willon/9117
+7efff8bf7000-7efff8bf8000 rw-p 00000000 00:00 0 
+7efff8bf8000-7efff8bf9000 ---p 00000000 00:00 0 
+7efff8bf9000-7efff8bfb000 rw-p 00000000 00:00 0 
+7efff8bfb000-7efff8bfc000 r--p 00025000 08:02 1311467                    /usr/lib64/ld-2.24.so
+7efff8bfc000-7efff8bfd000 rw-p 00026000 08:02 1311467                    /usr/lib64/ld-2.24.so
+7efff8bfd000-7efff8bfe000 rw-p 00000000 00:00 0 
+7ffdc8920000-7ffdc8941000 rw-p 00000000 00:00 0                          [stack]
+7ffdc89cf000-7ffdc89d1000 r--p 00000000 00:00 0                          [vvar]
+7ffdc89d1000-7ffdc89d3000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Dmaven.multiModuleProjectDirectory=/home/willon/IdeaProjects/Woss_ChenLong/M0010_MapreReduce_0010 -Dmaven.home=/home/willon/Software/idea17-3/plugins/maven/lib/maven3 -Dclassworlds.conf=/home/willon/Software/idea17-3/plugins/maven/lib/maven3/bin/m2.conf -javaagent:/home/willon/Software/idea17-3/lib/idea_rt.jar=41309:/home/willon/Software/idea17-3/bin -Dfile.encoding=UTF-8 
+java_command: org.codehaus.classworlds.Launcher -Didea.version=2017.3.2 package
+java_class_path (initial): /home/willon/Software/idea17-3/plugins/maven/lib/maven3/boot/plexus-classworlds-2.5.2.jar:/home/willon/Software/idea17-3/lib/idea_rt.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/local/lib/jdk-8
+PATH=/usr/local/lib/jdk-8/bin:/usr/local/lib/maven-3.5/bin:/usr/local/lib/hadoop-2.8.2/bin:/usr/local/lib/hadoop-2.8.2/sbin:/home/willon/Tools/ADB:/usr/local/lib/scala-2.12.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/home/willon/.local/bin:/home/willon/bin
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xac8af0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xac8af0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x921dd0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x921dd0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x921dd0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x921dd0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x923610], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x924a10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x924a10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x924a10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x924a10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Fedora release 25 (Twenty Five)
+
+uname:Linux 4.8.6-300.fc25.x86_64 #1 SMP Tue Nov 1 12:36:38 UTC 2016 x86_64
+libc:glibc 2.24 NPTL 2.24 
+rlimit: STACK 8192k, CORE infinity, NPROC 30613, NOFILE 4096, AS infinity
+load average:1.05 0.45 0.35
+
+/proc/meminfo:
+MemTotal:        7859520 kB
+MemFree:          122252 kB
+MemAvailable:      72076 kB
+Buffers:             928 kB
+Cached:           392156 kB
+SwapCached:            0 kB
+Active:          2922016 kB
+Inactive:         264336 kB
+Active(anon):    2852260 kB
+Inactive(anon):   197400 kB
+Active(file):      69756 kB
+Inactive(file):    66936 kB
+Unevictable:          80 kB
+Mlocked:              80 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                88 kB
+Writeback:             0 kB
+AnonPages:       2793584 kB
+Mapped:          4490508 kB
+Shmem:            256304 kB
+Slab:             117572 kB
+SReclaimable:      36796 kB
+SUnreclaim:        80776 kB
+KernelStack:       12416 kB
+PageTables:        49648 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     3929760 kB
+Committed_AS:   10755812 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      348156 kB
+DirectMap2M:     7720960 kB
+DirectMap1G:           0 kB
+
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4800MQ CPU @ 2.70GHz
+stepping	: 3
+microcode	: 0x22
+cpu MHz		: 2872.210
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 5388.04
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4800MQ CPU @ 2.70GHz
+stepping	: 3
+microcode	: 0x22
+cpu MHz		: 2714.501
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 5408.87
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4800MQ CPU @ 2.70GHz
+stepping	: 3
+microcode	: 0x22
+cpu MHz		: 3142.639
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 5401.84
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4800MQ CPU @ 2.70GHz
+stepping	: 3
+microcode	: 0x22
+cpu MHz		: 2761.798
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 5402.41
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4800MQ CPU @ 2.70GHz
+stepping	: 3
+microcode	: 0x22
+cpu MHz		: 3143.133
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 5402.31
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4800MQ CPU @ 2.70GHz
+stepping	: 3
+microcode	: 0x22
+cpu MHz		: 3209.545
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 5402.32
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4800MQ CPU @ 2.70GHz
+stepping	: 3
+microcode	: 0x22
+cpu MHz		: 3249.591
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 5402.33
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4800MQ CPU @ 2.70GHz
+stepping	: 3
+microcode	: 0x22
+cpu MHz		: 3459.704
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 5403.10
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 7859520k(122252k free), swap 0k(0k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.131-b11) for linux-amd64 JRE (1.8.0_131-b11), built on Mar 15 2017 01:23:40 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Fri Jan 19 16:54:38 2018
+elapsed time: 12 seconds (0d 0h 0m 12s)
+
